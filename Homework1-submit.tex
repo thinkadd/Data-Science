@@ -1,0 +1,1094 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Homework1-submit}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{CSE 591 Homework1}\label{cse-591-homework1}
+
+Xiufeng Yang 107992992
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{o}{\PYZpc{}}\PY{k}{install\PYZus{}ext} \PY{n}{http}\PY{p}{:}\PY{o}{/}\PY{o}{/}\PY{n}{raw}\PY{o}{.}\PY{n}{github}\PY{o}{.}\PY{n}{com}\PY{o}{/}\PY{n}{jrjohansson}\PY{o}{/}\PY{n}{version\PYZus{}information}\PY{o}{/}\PY{n}{master}\PY{o}{/}\PY{n}{version\PYZus{}information}\PY{o}{.}\PY{n}{py}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Installed version\_information.py. To use it, type:
+  \%load\_ext version\_information
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{c}{\PYZsh{}\PYZpc{}load\PYZus{}ext version\PYZus{}information}
+        \PY{c}{\PYZsh{}\PYZpc{}version\PYZus{}information numpy, scipy, matplotlib, sympy, scikit\PYZus{}learn, nltk, pandas}
+\end{Verbatim}
+
+    \subsection{(1) Plots}\label{plots}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}142}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{pandas}
+          \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k+kn}{import} \PY{n}{print\PYZus{}function}
+          \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits.basemap} \PY{k+kn}{import} \PY{n}{Basemap}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}193}]:} \PY{n}{np\PYZus{}array} \PY{o}{=} \PY{n}{pandas}\PY{o}{.}\PY{n}{io}\PY{o}{.}\PY{n}{parsers}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{country\PYZhy{}data\PYZhy{}linux.csv}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{as\PYZus{}matrix}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}194}]:} \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[['Afghanistan' 'AF' 'Islamic republic' \ldots, '7512000' '1000000' '15']
+ ['Albania' 'AL' 'parliamentary democracy' \ldots, '1098000' '1300000' '9.52']
+ ['Algeria' 'DZ' 'republic' \ldots, '11150000' '4700000' '8']
+ \ldots, 
+ ['Yemen' 'YE' 'republic' \ldots, '7100000' '2349000' '22']
+ ['Zambia' 'ZM' 'republic' \ldots, '6275000' '816200' '10.4']
+ ['Zimbabwe' 'ZW' 'parliamentary democracy' \ldots, '3939000' '1423000' '28']]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}195}]:} \PY{k}{def} \PY{n+nf}{conversion}\PY{p}{(}\PY{n}{old}\PY{p}{)}\PY{p}{:}
+              \PY{n}{new} \PY{o}{=} \PY{n}{old}
+              \PY{n}{direction} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{N}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{S}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{E}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{\PYZcb{}}
+              \PY{c}{\PYZsh{}new = old.replace(u\PYZsq{}°\PYZsq{},\PYZsq{} \PYZsq{}).replace(\PYZsq{}\PYZbs{}\PYZsq{}\PYZsq{},\PYZsq{} \PYZsq{}).replace(\PYZsq{}\PYZdq{}\PYZsq{},\PYZsq{} \PYZsq{})}
+              \PY{n}{new} \PY{o}{=} \PY{n}{new}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+              \PY{n}{new\PYZus{}dir} \PY{o}{=} \PY{n}{new}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{p}{)}
+              \PY{n}{new}\PY{o}{.}\PY{n}{extend}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{k}{return} \PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{new}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{+}\PY{n+nb}{int}\PY{p}{(}\PY{n}{new}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mf}{60.0}\PY{o}{+}\PY{n+nb}{int}\PY{p}{(}\PY{n}{new}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mf}{3600.0}\PY{p}{)} \PY{o}{*} \PY{n}{direction}\PY{p}{[}\PY{n}{new\PYZus{}dir}\PY{p}{]}
+          
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{o}{=}\PY{n}{conversion}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]}\PY{o}{=}\PY{n}{conversion}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{AttributeError}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{0}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{0}
+          \PY{c}{\PYZsh{}print(np\PYZus{}array[:,5])}
+          \PY{c}{\PYZsh{}print(np\PYZus{}array[:,6])}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}196}]:} \PY{n}{m} \PY{o}{=} \PY{n}{Basemap}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{cyl}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{llcrnrlat}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{90}\PY{p}{,}\PY{n}{urcrnrlat}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,}\PYZbs{}
+                      \PY{n}{llcrnrlon}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{180}\PY{p}{,}\PY{n}{urcrnrlon}\PY{o}{=}\PY{l+m+mi}{180}\PY{p}{,}\PY{n}{resolution}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{m}\PY{o}{.}\PY{n}{drawcoastlines}\PY{p}{(}\PY{p}{)}
+          \PY{n}{m}\PY{o}{.}\PY{n}{fillcontinents}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{coral}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{lake\PYZus{}color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{aqua}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{m}\PY{o}{.}\PY{n}{drawparallels}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{90.}\PY{p}{,}\PY{l+m+mf}{91.}\PY{p}{,}\PY{l+m+mf}{30.}\PY{p}{)}\PY{p}{)}
+          \PY{n}{m}\PY{o}{.}\PY{n}{drawmeridians}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{180.}\PY{p}{,}\PY{l+m+mf}{181.}\PY{p}{,}\PY{l+m+mf}{60.}\PY{p}{)}\PY{p}{)}
+          \PY{n}{m}\PY{o}{.}\PY{n}{drawmapboundary}\PY{p}{(}\PY{n}{fill\PYZus{}color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{aqua}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{capital}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{m}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{,} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{m}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{bo}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+              \PY{k}{except}\PY{p}{:}
+                  \PY{k}{continue}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion:}\label{conclusion}
+
+This datamap maps all capital cities on the world map
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{,} \PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Population vs. Area}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:} <matplotlib.text.Text at 0x7f6420cc0650>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_10_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion}\label{conclusion}
+
+The x-axis is area, y-axis is population, most countries stays in a
+relatively compact area, while only a few stand out. Specifically, two
+countries have very large population compared with their areas, and 5
+countries have very low populations compared with their area.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{l+m+mi}{80}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+republic; parliamentary democracy
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{nditer}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{op\PYZus{}flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{readwrite}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{refs\PYZus{}ok}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+             \PY{c}{\PYZsh{}print(type(x))}
+             \PY{k}{if} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZdq{}}\PY{l+s}{Islamic republic}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{1}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZdq{}}\PY{l+s}{parliamentary democracy}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{2}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{republic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{3}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{constitutional monarchy}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{4}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{federal parliamentary democracy}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{5}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{federal republic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{6}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{constitutional parliamentary democracy}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{7}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{parliamentary republic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{8}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{constitutional government}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{9}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{constitutional republic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{10}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{monarchy}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{11}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{democratic republic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{12}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{Communist state}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{13}
+             \PY{k}{elif} \PY{n}{x}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{federation}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{14}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{15}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1 2 3 2 3 4 3 3 5 6 3 7 4 2 2 3 15 2 3 4 3 15 8 6 15 2 8 3 3 15 3 15 3 3 3
+ 13 3 3 3 3 12 3 2 13 15 2 4 3 2 12 3 3 3 3 15 8 6 3 3 3 3 3 3 6 15 8 15 2
+ 15 3 3 3 3 15 2 10 6 3 15 2 15 2 3 7 15 4 15 3 3 15 3 3 15 3 13 2 3 15 3
+ 15 15 2 4 2 3 15 15 3 3 3 9 15 2 6 9 3 4 15 3 4 3 15 3 3 15 4 15 3 3 6 4
+ 11 6 9 15 7 10 10 3 3 15 15 3 14 3 2 2 15 2 3 3 11 3 3 3 15 8 2 8 2 15 3 3
+ 15 3 15 15 11 4 15 15 15 3 3 4 3 15 4 2 3 15 15 2 3 3 15 4 15 10 3 8 6 13
+ 15 3 3 2]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax1} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{bins}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Government types}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n+nb}{max}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}15}]:} (1, 15)
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_15_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion}\label{conclusion}
+
+For plot legend, please refer to above python code. From this plot, we
+can see that most countries uses government type is republic, and then
+parliamentary democracy
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{totalLaborforce} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{n}{countriesCounted} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}
+         \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{nditer}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{18}\PY{p}{]}\PY{p}{,} \PY{n}{op\PYZus{}flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{readwrite}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{refs\PYZus{}ok}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+             \PY{k}{try}\PY{p}{:}
+                 \PY{k}{if} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{:}
+                     \PY{n}{totalLaborforce}\PY{o}{+}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                     \PY{n}{countriesCounted}\PY{o}{=}\PY{n}{countriesCounted}\PY{o}{+}\PY{l+m+mi}{1}
+             \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}
+                 
+             \PY{c}{\PYZsh{}print(x)}
+             
+         \PY{n}{mean} \PY{o}{=} \PY{n}{totalLaborforce}\PY{o}{/}\PY{o}{/}\PY{n}{countriesCounted}
+         \PY{c}{\PYZsh{}print(mean)}
+         
+         \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{nditer}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{18}\PY{p}{]}\PY{p}{,} \PY{n}{op\PYZus{}flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{readwrite}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{flags}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{refs\PYZus{}ok}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]} \PY{o}{=} \PY{n}{mean}
+                 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax2} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{p}{,} \PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{18}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Labor Force vs. Population}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:} <matplotlib.text.Text at 0x7f6420b049d0>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_18_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion}\label{conclusion}
+
+In this plot, we can see that the labor forces of each countries have an
+almost linear relationship with population. The two dots that are
+standing out are calculated by the values got from Mean value
+imputation. This implies that mean value imputation is not appropriate
+in this situation. Based on the pattern of other countries, imputation
+by interpolation is a much better way to fill in the missing values in
+this kind of scenario.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax3} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{]}\PY{p}{,} \PY{n}{bins}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Life Expectancy}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n+nb}{max}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}18}]:} (49.44, 89.57)
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_20_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    In this plot we can see the distribution of life expectancy of all
+countries. The most countries has life expectancy of 75-80, following by
+70-75. Very few countries has life expectancy of 85-90. No countries
+have it over 90 yet.
+
+\subsection{(2) Pairwise correlation}\label{pairwise-correlation}
+
+    \paragraph{Existing problem:}\label{existing-problem}
+
+The code above can only deal with columns that don't have missing
+values, but the funcion is working perfectly. Just need to calculate the
+missing values (done some columns in the following sections) and fill in
+the file, re-run the code, it will give all the permutations.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}114}]:} \PY{n}{pd\PYZus{}array} \PY{o}{=} \PY{n}{pandas}\PY{o}{.}\PY{n}{io}\PY{o}{.}\PY{n}{parsers}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{country\PYZhy{}data\PYZhy{}linux.csv}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{c}{\PYZsh{}print(pd\PYZus{}array)}
+          \PY{n}{corr}\PY{o}{=}\PY{n}{pd\PYZus{}array}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{corr}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{corr}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{hot}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{interpolation}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{colorbar}\PY{p}{(}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{corr}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{corr}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{corr}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{corr}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Population  Life Expectancy  GDP (PPP) in US \$  \textbackslash{}
+Population              1.000000         0.014249           0.697280   
+Life Expectancy         0.014249         1.000000           0.175071   
+GDP (PPP) in US \$       0.697280         0.175071           1.000000   
+Area (sq km)            0.453228         0.033022           0.592445   
+Land Boundaries (km)    0.575146        -0.219494           0.500468   
+Coastline (km)          0.120474         0.162933           0.204414   
+
+                      Area (sq km)  Land Boundaries (km)  Coastline (km)  
+Population                0.453228              0.575146        0.120474  
+Life Expectancy           0.033022             -0.219494        0.162933  
+GDP (PPP) in US \$         0.592445              0.500468        0.204414  
+Area (sq km)              1.000000              0.749098        0.521336  
+Land Boundaries (km)      0.749098              1.000000        0.195977  
+Coastline (km)            0.521336              0.195977        1.000000  
+
+[6 rows x 6 columns]
+    \end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}114}]:} ([<matplotlib.axis.YTick at 0x7f99eac25790>,
+            <matplotlib.axis.YTick at 0x7f99eadd3750>,
+            <matplotlib.axis.YTick at 0x7f99eac6a190>,
+            <matplotlib.axis.YTick at 0x7f99eac6a890>,
+            <matplotlib.axis.YTick at 0x7f99eadb1e10>,
+            <matplotlib.axis.YTick at 0x7f99eadb16d0>],
+           <a list of 6 Text yticklabel objects>)
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_23_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion:}\label{conclusion}
+
+From the plot, I can conclude that for the existing columns, most
+significantly correlated is Land Boundaries and Area; least
+significantly correlated is Land Boundaries and Life Expectancy. The
+result makes perfect sense because area and land boundaries have strong
+relationship, while land boundaries and life expectancy don't
+necessarily have relationship.
+
+    \subsection{(3) Linear regression of GDP per
+capita}\label{linear-regression-of-gdp-per-capita}
+
+    
+
+    I think the factor that will most likely have a linear relationship with
+GDP per capita is the ratios of (internet users / population). Because
+modern technologies like the Internet has a big impact on the economy of
+a country, and the development of economy will also have impact on the
+development of the Internet.
+
+Because GDP per capita is GDP / population, and internet user rate is
+internet users / population, so the problem can be simplified by compare
+GDP and internet users.
+
+First step is to fill in the unknown values in the internet users column
+here I use linear regression, first calculate the average ratio of all
+countries that have valid values, and fill in the missing values using
+the calculated ratio and the existing population data. The whole process
+is below:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{c}{\PYZsh{}print(np\PYZus{}array[:,19])}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}116}]:} \PY{c}{\PYZsh{}np\PYZus{}array = pandas.io.parsers.read\PYZus{}csv(\PYZdq{}country\PYZhy{}data\PYZhy{}linux.csv\PYZdq{}).as\PYZus{}matrix()}
+          \PY{n}{totalInternetUsers} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalGDP} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{c}{\PYZsh{}print()}
+                  \PY{c}{\PYZsh{}print(int(x[19]))}
+                  \PY{n}{totalGDP} \PY{o}{=} \PY{n}{totalGDP}\PY{o}{+}\PY{n+nb}{int}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}
+                  \PY{c}{\PYZsh{}print(totalPopulation)}
+                  \PY{n}{totalInternetUsers} \PY{o}{=} \PY{n}{totalInternetUsers}\PY{o}{+}\PY{n+nb}{int}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{)}
+                  \PY{c}{\PYZsh{}print(totalInternetUsers)}
+              \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+                  \PY{c}{\PYZsh{}print(x[19])}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}
+                  \PY{c}{\PYZsh{}print(x[19])}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}117}]:} \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k+kn}{import} \PY{n}{division}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalInternetUsers}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalGDP}\PY{p}{)}
+          \PY{n}{avgRatio} \PY{o}{=} \PY{n}{totalInternetUsers}\PY{o}{/}\PY{n}{totalGDP}
+          \PY{k}{print}\PY{p}{(}\PY{n}{avgRatio}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1805576800
+86690158000000
+2.08279329702e-05
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}118}]:} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{if} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}\PY{o}{==}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{*}\PY{n}{avgRatio}\PY{p}{)}
+                  \PY{k}{print}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+833117
+293882
+1249
+5113
+306378
+1873889
+833
+18880
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}119}]:} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}A = array([ xi, ones(9)])}
+          \PY{n}{InternetUsers} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{,} \PY{n}{ones}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+          \PY{n}{GDP} \PY{o}{=} \PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}
+          
+          \PY{c}{\PYZsh{}print(InternetUsers)}
+          \PY{n}{w} \PY{o}{=} \PY{n}{linalg}\PY{o}{.}\PY{n}{lstsq}\PY{p}{(}\PY{n}{InternetUsers}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{GDP}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{n}{line} \PY{o}{=} \PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{19}\PY{p}{]}\PY{o}{+}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{c}{\PYZsh{} regression line}
+         \PY{n}{plot}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{,}\PY{n}{line}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{r\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{19}\PY{p}{]}\PY{p}{,}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Conclusion}\label{conclusion}
+
+From the plot we can see that most countries has similar linear
+relationship between internet users/population and average income
+(GDP/population). The two countries that are clearly standing out are
+China and United States. China has a relatively low average income
+compared to my prediction, while the United States has a relatively
+higher average income compared to internet users per population. The
+Reason is China has a huge population, which lower it's average income.
+United State is point 0 of modern Internet industry, the Internet is
+highly developed, it's not the Internet user rate is low, it's the
+average income of the United State is high.
+
+    \subsection{(4) Ranking}\label{ranking}
+
+    For social welfare, I use 4 values to evaluate: GDP/population(average
+income), life expectancy, literacy rate, and health expenditure, because
+average income is the basis of providing social welfare, without money,
+there will be no social welfare. Similarly, a country that provides good
+social welfare often has a higher life expectancy and literacy rate
+because medical and education are very importatnt part of social
+welfare.
+
+\paragraph{define:}\label{define}
+
+GDP/population: ai; Life expectancy: le; literacy rate: lr; health
+expenditure: h;
+
+The equation I come up with is: index = (ai) X (le) X (lr) X (h)
+
+The first task is still filling in the missing values. Because literacy
+rate and health expenditure have no very clear patter with other values,
+so I just fill in the mean value.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}99}]:} \PY{n}{np\PYZus{}array} \PY{o}{=} \PY{n}{pandas}\PY{o}{.}\PY{n}{io}\PY{o}{.}\PY{n}{parsers}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{country\PYZhy{}data\PYZhy{}linux.csv}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{as\PYZus{}matrix}\PY{p}{(}\PY{p}{)}
+         \PY{n}{totalRate} \PY{o}{=} \PY{l+m+mf}{0.0}
+         \PY{n}{countriesCounted} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+             \PY{k}{try}\PY{p}{:}
+                 \PY{n}{totalRate}\PY{o}{+}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{countriesCounted}\PY{o}{=}\PY{n}{countriesCounted} \PY{o}{+} \PY{l+m+mi}{1}
+             \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}
+         \PY{n}{lrMean} \PY{o}{=} \PY{n}{totalRate}\PY{o}{/}\PY{n}{countriesCounted}
+         
+         \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+             \PY{k}{if} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{==}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}\PY{p}{:}
+                 \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{lrMean}\PY{p}{)}
+             \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{p}{)}
+         \PY{c}{\PYZsh{}print(np\PYZus{}array[:,13])}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}102}]:} \PY{n}{totalExp} \PY{o}{=} \PY{l+m+mf}{0.0}
+          \PY{n}{countriesCounted} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{totalExp}\PY{o}{+}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{countriesCounted}\PY{o}{=}\PY{n}{countriesCounted} \PY{o}{+} \PY{l+m+mi}{1}
+              \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}
+          \PY{n}{heMean} \PY{o}{=} \PY{n}{totalExp}\PY{o}{/}\PY{n}{countriesCounted}
+          \PY{c}{\PYZsh{}print(heMean)}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{k}{if} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{o}{==}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}\PY{p}{:}
+                  \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{heMean}\PY{p}{)}
+              \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{p}{)}
+          \PY{c}{\PYZsh{}print(np\PYZus{}array[:,14])}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}109}]:} \PY{n}{index} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{n}{index}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{*}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{]}\PY{o}{*}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{*}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{The country that has the highest social welfare index is:}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{index}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{The country that has the lowest social welfare index is:}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{index}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The country that has the highest social welfare index is:
+Monaco
+The country that has the lowest social welfare index is:
+Niger
+    \end{Verbatim}
+
+    \subsubsection{Conclusion:}\label{conclusion}
+
+By my measure, Monaco does the best in social welfare, while Niger does
+the worst. This result makes sense because it is commonly known that
+Monaco is a rich country and provides high social welfare, while Niger
+is a poor African country, clearly is lacks the resource and wealth to
+provide its citizens a good social welfare.
+
+    \subsection{(5) Similarity}\label{similarity}
+
+    For the similarities and differences, I measure from two aspects:
+natural difference and social difference.
+
+For natual difference, measure Area, land boundaries, and coastline. For
+social difference, measure population, life expectancy, GDP, literacy
+rate, health expenditure, internet users.
+
+I'll measure \#\#\#\#the percentage of each value above of each country
+among all countries, and add them up to create a ranking index. Then by
+comparing the index, I can conclude which two countries are most apart
+and which two countries are most close.
+
+I will start by calculating the total values of each column:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}120}]:} \PY{n}{totalArea} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalLandBoundaries} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalCoastline} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalPopulation} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalLifeExpectancy} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalGDP} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalLiteracyRate} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalHealthExpenditure} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{n}{totalInternetUsers} \PY{o}{=} \PY{l+m+mi}{0}
+          
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{n}{totalArea} \PY{o}{=} \PY{n}{totalArea} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{10}\PY{p}{]}
+              \PY{n}{totalLandBoundaries} \PY{o}{=} \PY{n}{totalLandBoundaries} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{11}\PY{p}{]}
+              \PY{n}{totalCoastline} \PY{o}{=} \PY{n}{totalCoastline} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{12}\PY{p}{]}
+              \PY{n}{totalPopulation} \PY{o}{=} \PY{n}{totalPopulation} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{]}
+              \PY{n}{totalLifeExpectancy} \PY{o}{=} \PY{n}{totalLifeExpectancy} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{]}
+              \PY{n}{totalGDP} \PY{o}{=} \PY{n}{totalGDP} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}
+              \PY{n}{totalLiteracyRate} \PY{o}{=} \PY{n}{totalLiteracyRate} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}
+              \PY{n}{totalHealthExpenditure} \PY{o}{=} \PY{n}{totalHealthExpenditure} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}
+              \PY{n}{totalInternetUsers} \PY{o}{=} \PY{n}{totalInternetUsers} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalArea}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalLandBoundaries}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalCoastline}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalPopulation}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalLifeExpectancy}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalGDP}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalLiteracyRate}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalHealthExpenditure}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{totalInternetUsers}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+136159276.6
+541082.2
+762467.2
+7156890822
+13921.61
+86690158000000
+16716.8279793
+1377.01957672
+1808910141
+    \end{Verbatim}
+
+    For each country, calculate the index and then create a new array to
+store the calculated index
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}121}]:} \PY{n}{indexArray} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{np\PYZus{}array}\PY{p}{:}
+              \PY{n}{indexArray}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{/}\PY{n}{totalArea}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{11}\PY{p}{]}\PY{o}{/}\PY{n}{totalLandBoundaries}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{n}{totalCoastline}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{/}\PY{n}{totalPopulation}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{]}\PY{o}{/}\PY{n}{totalLifeExpectancy}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{n}{totalGDP}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{13}\PY{p}{]}\PY{o}{/}\PY{n}{totalLiteracyRate}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{14}\PY{p}{]}\PY{o}{/}\PY{n}{totalHealthExpenditure}\PY{o}{+}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{19}\PY{p}{]}\PY{o}{/}\PY{n}{totalInternetUsers}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{indexArray}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[0.03365614847675576, 0.019396153816547593, 0.05521456383073162, 0.0174545329912076, 0.03642476335175857, 0.015945726810329606, 0.08886396566057664, 0.01830537457477895, 0.13239307443046575, 0.033308711126329875, 0.02398481512766714, 0.02146523546753531, 0.015098546495368459, 0.048506831372305444, 0.01729800242723096, 0.027704225964482236, 0.0328786625760783, 0.01543892645705089, 0.016895438458208647, 0.01366283738464034, 0.0381862139727416, 0.02370448460075721, 0.02574376602567668, 0.21752388633993686, 0.01427169441991933, 0.025411978408286778, 0.022029877092694557, 0.01853283804519206, 0.015184481676481246, 0.022388421981899692, 0.029713526038191284, 0.412004800198743, 0.026138786566306426, 0.032071475185270204, 0.055559218217029055, 0.7047971818696956, 0.06533148695612706, 0.013518544960843428, 0.06218924520897932, 0.02404162280596866, 0.02477840688389987, 0.026174542659054244, 0.03204171508130979, 0.028444242567992748, 0.01876458851751601, 0.029754506927996603, 0.035746010350291464, 0.01599549216976637, 0.015646283432705778, 0.021745686757200643, 0.0312749211814385, 0.0582842874852523, 0.018784850137778426, 0.015006345359753051, 0.01882248908814519, 0.023228434591050142, 0.044283406840642144, 0.015402898831484248, 0.03244897207302337, 0.09589343501731283, 0.02117577493532257, 0.012830668956338715, 0.024223676930614123, 0.11688769761812877, 0.02477607095207671, 0.046416210007994826, 0.09029735504707753, 0.015753556861042694, 0.023210939234836983, 0.02259458871220723, 0.013878230820293646, 0.022531992283778023, 0.018514381641936424, 0.02346261610184722, 0.02857775435441949, 0.02600182756490132, 0.33466858518751796, 0.1652274903250697, 0.06795493514511311, 0.033798472604479206, 0.02632240059724151, 0.026468993963707284, 0.07988862643720036, 0.017253133138154256, 0.1876775194644672, 0.023550418295402057, 0.06680019185711294, 0.03383311378730379, 0.01864558471987884, 0.027594544134187972, 0.06900334289452477, 0.017622206711479654, 0.017721864191911955, 0.027550615155991935, 0.023786733023225804, 0.02135268109738068, 0.018864318797146697, 0.02106718847238823, 0.0272537988475081, 0.039191504105375134, 0.017119903421772324, 0.022311611969036086, 0.018743935534874318, 0.01893873869482896, 0.025835573557605143, 0.024031513291393854, 0.04590455219202251, 0.01844214048405271, 0.03726225611834256, 0.01803500275289541, 0.02330486949815908, 0.030331210326627243, 0.015831250281820003, 0.10567248218357453, 0.028306194656775013, 0.024360499221653453, 0.015583872094919453, 0.04184588789908143, 0.02008257715527991, 0.03791028961689806, 0.03399130374118988, 0.04041969803785123, 0.02938299501590007, 0.017004733577874253, 0.02423500011001317, 0.041957262880539824, 0.04494844810591074, 0.022941177985086974, 0.03225092076354049, 0.08206374050876503, 0.06497881514418202, 0.022509544855944003, 0.07587419028936751, 0.020420341647490785, 0.02404226979082993, 0.02455141009670702, 0.0318453876900069, 0.053005854257655485, 0.0885487780259924, 0.051626587925286065, 0.03139925094186222, 0.016655232553672003, 0.03346508142878414, 0.3038167893877375, 0.02042654397710109, 0.014660392247750256, 0.016518014548484033, 0.014863197534687685, 0.01684738205119676, 0.017044151199656455, 0.014689660767294613, 0.06035009597578282, 0.02204009106673602, 0.027870103153641666, 0.014290021217660091, 0.02435579058904672, 0.02187334946836641, 0.02584129022600506, 0.02219565137803589, 0.024094600067529507, 0.02568442889645552, 0.053685076159463815, 0.028425099930557994, 0.0707370336598421, 0.021237436925705407, 0.04937366764103229, 0.020149557231952022, 0.016149150632817008, 0.04078847273259341, 0.0321395925002818, 0.024832140442296067, 0.041754991577834494, 0.025410296558472108, 0.038496373071330366, 0.05926732604922612, 0.013996752980011882, 0.01929817137565074, 0.01580157059672665, 0.01656657263691245, 0.024854164171962942, 0.0760822418857413, 0.025581668035277373, 0.022400786738707934, 0.0294185285626632, 0.04900367112802031, 0.023435816142863098, 0.10224202266831012, 0.5180728293073614, 0.024187011062364986, 0.039090502013752026, 0.016644417816711134, 0.04860065784654904, 0.06136251064326592, 0.021919849498402588, 0.027543164808018748, 0.03131220540777857, 0.02571154117932234]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}123}]:} \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{The fathest neighbors are:}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{max}\PY{p}{(}\PY{n}{indexArray}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{And}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{indexArray}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The fathest neighbors are:
+China
+And
+Gambia, The
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}130}]:} \PY{n}{sortedIndexArray} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{indexArray}\PY{p}{)}
+          \PY{n}{sortedIndexArray}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+          \PY{n}{intervals} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{size}\PY{p}{(}\PY{n}{sortedIndexArray}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+              \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+              \PY{n}{intervals}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+          \PY{n}{countryOneIndex} \PY{o}{=} \PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{intervals}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{intervals}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+          \PY{n}{countryTwoIndex} \PY{o}{=} \PY{n}{sortedIndexArray}\PY{p}{[}\PY{n}{intervals}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{n}{intervals}\PY{p}{)}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{The closest neighbors are:}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{countryOneIndex}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{And}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{n}{indexArray}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{countryTwoIndex}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Gambia, The
+Comoros
+Bhutan
+Guinea-Bissau
+Timor-Leste
+Brunei
+Seychelles
+Saint Kitts and Nevis
+Sao Tome and Principe
+Saint Vincent and the Grenadines
+Equatorial Guinea
+Bahrain
+Cabo Verde
+Fiji
+Belize
+Monaco
+Dominica
+Grenada
+Tonga
+Mauritius
+Antigua and Barbuda
+Djibouti
+Swaziland
+Saint Lucia
+Trinidad and Tobago
+Vanuatu
+Qatar
+Samoa
+Benin
+Nauru
+San Marino
+Liechtenstein
+Jamaica
+Barbados
+Andorra
+Kosovo
+Kuwait
+Malta
+Armenia
+Maldives
+Haiti
+Burundi
+Kiribati
+Luxembourg
+Cyprus
+El Salvador
+Eritrea
+Lebanon
+Macedonia
+Togo
+Albania
+Montenegro
+Suriname
+Palau
+Rwanda
+Lesotho
+Gabon
+Sri Lanka
+Latvia
+Bahamas, The
+Dominican Republic
+Singapore
+Western Sahara
+Burkina Faso
+Senegal
+Slovenia
+Lithuania
+Cambodia
+Tuvalu
+Oman
+Guyana
+Guinea
+Nicaragua
+Guatemala
+Estonia
+Marshall Islands
+United Arab Emirates
+Honduras
+Jordan
+Bosnia and Herzegovina
+Laos
+Azerbaijan
+Malawi
+Congo, Republic of the
+Panama
+Solomon Islands
+Uruguay
+Georgia
+Nepal
+Sierra Leone
+Moldova
+Papua New Guinea
+Ghana
+Costa Rica
+Syria
+Tunisia
+Tajikistan
+Bulgaria
+Turkmenistan
+Somalia
+Zimbabwe
+Botswana
+Madagascar
+Slovakia
+Iceland
+Central African Republic
+Cote d'Ivoire
+Ireland
+Israel
+Liberia
+Yemen
+Kyrgyzstan
+Korea, North
+Belarus
+Serbia
+Micronesia, Federated States of
+South Sudan
+Cuba
+Hungary
+Namibia
+Uganda
+Cameroon
+Czech Republic
+Mauritania
+Ecuador
+Zambia
+Portugal
+Paraguay
+Croatia
+Chad
+Switzerland
+Niger
+Finland
+Belgium
+Austria
+Romania
+Afghanistan
+Iraq
+Kenya
+Mozambique
+Denmark
+Angola
+Mali
+Morocco
+Bolivia
+Tanzania
+Uzbekistan
+Libya
+Burma
+Sweden
+Taiwan
+Mongolia
+Netherlands
+Ethiopia
+New Zealand
+Malaysia
+Greece
+Bangladesh
+Venezuela
+Ukraine
+Sudan
+Poland
+Peru
+South Africa
+Algeria
+Chile
+Egypt
+Thailand
+Saudi Arabia
+Vietnam
+Congo, Democratic Republic of the
+Norway
+Colombia
+Kazakhstan
+Iran
+Korea, South
+Spain
+Pakistan
+Turkey
+Italy
+Nigeria
+Philippines
+Argentina
+Greenland
+France
+United Kingdom
+Mexico
+Germany
+Australia
+Indonesia
+Japan
+Brazil
+Russia
+India
+Canada
+United States
+China
+
+
+
+
+The closest neighbors are:
+Congo, Republic of the
+And
+Panama
+    \end{Verbatim}
+
+    \subsubsection{Conclusion:}\label{conclusion}
+
+By looking at the ranking of the countries using my index, what I did
+right was, on the head of the list (bottom on the table), these
+countries either have large area, big population, high GDP, all in all
+,these countries have at lease one aspect that makes it stand out of all
+other countries. While on the tail of the list (top of the table), these
+countries are most ones that I've never heard of, meaning that they have
+least influence on the world. Both the result, farthest and closest
+neighbors make perfect sense.
+
+One interesting pair could be France and Greenland. I don't think these
+two countries have much in common, the reason why they stay together is
+probably one have advantage in natural aspects while the other is
+stronger in social aspects.
+
+One example that my model does something wrong is that Monaco, the
+country that I just identified as best social-welfare country, falls to
+the end part of the list, which pacific lsland countries, caribbean
+countries, and African countries. The only thing that Monaco has in
+common with those countries might be the area. This is where my ranking
+system needs refine.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
