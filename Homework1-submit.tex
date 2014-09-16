@@ -240,7 +240,9 @@ Installed version\_information.py. To use it, type:
         \PY{c}{\PYZsh{}\PYZpc{}version\PYZus{}information numpy, scipy, matplotlib, sympy, scikit\PYZus{}learn, nltk, pandas}
 \end{Verbatim}
 
-    \subsection{(1) Plots}\label{plots}
+    \subsection{Plots}\label{plots}
+
+\subsubsection{Capital Map}\label{capital-map}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}142}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
@@ -313,9 +315,11 @@ Installed version\_information.py. To use it, type:
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsubsection{Conclusion:}\label{conclusion}
+    \paragraph{Conclusion:}\label{conclusion}
 
 This datamap maps all capital cities on the world map
+
+    \subsubsection{Population vs.~Area}\label{population-vs.area}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}11}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
@@ -329,16 +333,19 @@ This datamap maps all capital cities on the world map
 \end{Verbatim}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_10_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_11_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsubsection{Conclusion}\label{conclusion}
+    \paragraph{Conclusion}\label{conclusion}
 
 The x-axis is area, y-axis is population, most countries stays in a
 relatively compact area, while only a few stand out. Specifically, two
 countries have very large population compared with their areas, and 5
 countries have very low populations compared with their area.
+
+    \subsubsection{Government Type
+Distribution}\label{government-type-distribution}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}12}]:} \PY{k}{print}\PY{p}{(}\PY{n}{np\PYZus{}array}\PY{p}{[}\PY{l+m+mi}{80}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
@@ -409,15 +416,18 @@ republic; parliamentary democracy
 \end{Verbatim}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_15_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_17_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsubsection{Conclusion}\label{conclusion}
+    \paragraph{Conclusion}\label{conclusion}
 
 For plot legend, please refer to above python code. From this plot, we
 can see that most countries uses government type is republic, and then
 parliamentary democracy
+
+    \subsubsection{Labor Force
+vs.~Population}\label{labor-force-vs.population}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}16}]:} \PY{n}{totalLaborforce} \PY{o}{=} \PY{l+m+mi}{0}
@@ -453,11 +463,11 @@ parliamentary democracy
 \end{Verbatim}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_18_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_21_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsubsection{Conclusion}\label{conclusion}
+    \paragraph{Conclusion}\label{conclusion}
 
 In this plot, we can see that the labor forces of each countries have an
 almost linear relationship with population. The two dots that are
@@ -466,6 +476,9 @@ imputation. This implies that mean value imputation is not appropriate
 in this situation. Based on the pattern of other countries, imputation
 by interpolation is a much better way to fill in the missing values in
 this kind of scenario.
+
+    \subsubsection{Life Expectancy
+Distribution}\label{life-expectancy-distribution}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}18}]:} \PY{n}{fig}\PY{p}{,} \PY{n}{ax3} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
@@ -479,7 +492,7 @@ this kind of scenario.
 \end{Verbatim}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_20_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_24_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -488,7 +501,7 @@ countries. The most countries has life expectancy of 75-80, following by
 70-75. Very few countries has life expectancy of 85-90. No countries
 have it over 90 yet.
 
-\subsection{(2) Pairwise correlation}\label{pairwise-correlation}
+\subsection{Pairwise correlation}\label{pairwise-correlation}
 
     \paragraph{Existing problem:}\label{existing-problem}
 
@@ -539,7 +552,7 @@ Coastline (km)            0.521336              0.195977        1.000000
 \end{Verbatim}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_23_2.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_27_2.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -552,7 +565,7 @@ result makes perfect sense because area and land boundaries have strong
 relationship, while land boundaries and life expectancy don't
 necessarily have relationship.
 
-    \subsection{(3) Linear regression of GDP per
+    \subsection{Linear regression of GDP per
 capita}\label{linear-regression-of-gdp-per-capita}
 
     
@@ -646,7 +659,7 @@ is below:
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_33_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Homework1-submit_files/Homework1-submit_37_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -663,7 +676,7 @@ United State is point 0 of modern Internet industry, the Internet is
 highly developed, it's not the Internet user rate is low, it's the
 average income of the United State is high.
 
-    \subsection{(4) Ranking}\label{ranking}
+    \subsection{Ranking}\label{ranking}
 
     For social welfare, I use 4 values to evaluate: GDP/population(average
 income), life expectancy, literacy rate, and health expenditure, because
@@ -673,10 +686,8 @@ social welfare often has a higher life expectancy and literacy rate
 because medical and education are very importatnt part of social
 welfare.
 
-\paragraph{define:}\label{define}
-
-GDP/population: ai; Life expectancy: le; literacy rate: lr; health
-expenditure: h;
+define: GDP/population: ai; Life expectancy: le; literacy rate: lr;
+health expenditure: h;
 
 The equation I come up with is: index = (ai) X (le) X (lr) X (h)
 
@@ -746,7 +757,7 @@ Monaco is a rich country and provides high social welfare, while Niger
 is a poor African country, clearly is lacks the resource and wealth to
 provide its citizens a good social welfare.
 
-    \subsection{(5) Similarity}\label{similarity}
+    \subsection{Similarity}\label{similarity}
 
     For the similarities and differences, I measure from two aspects:
 natural difference and social difference.
